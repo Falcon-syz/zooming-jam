@@ -1,0 +1,50 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/pick/pick",
+			"style": {
+				"navigationBarTitleText": "pick"
+			}
+		},
+		{
+			"path": "pages/make/make",
+			"style": {
+				"navigationBarTitleText": "make"
+			}
+		},
+		{
+			"path": "pages/open/open",
+			"style": {
+				"navigationBarTitleText": "open"
+			}
+		}
+	],
+	"tabBar": {
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"list": [{
+				"pagePath": "pages/pick/pick",
+				"iconPath": "static/tabs/pick.png",
+				"selectedIconPath": "static/tabs/pick-active.png"
+			}, {
+				"pagePath": "pages/make/make",
+				"iconPath": "static/tabs/make.png",
+				"selectedIconPath": "static/tabs/make-active.png"
+			},
+			{
+				"pagePath": "pages/open/open",
+				"iconPath": "static/tabs/open.png",
+				"selectedIconPath": "static/tabs/open-active.png"
+			}
+		],
+		"globalStyle": {
+			"navigationBarTextStyle": "black",
+			"navigationBarTitleText": "zooming jam",
+			"navigationBarBackgroundColor": "#F8F8F8",
+			"backgroundColor": "#F8F8F8"
+		}
+	}
+}
