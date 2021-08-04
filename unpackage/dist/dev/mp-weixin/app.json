@@ -32,5 +32,6 @@
       "backgroundColor": "#F8F8F8"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap11.json"
 }

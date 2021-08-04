@@ -1,1 +1,1 @@
-<view>pick</view>
+<view><view><u-row vue-id="1bef37c0-1" bind:__l="__l" vue-slots="{{['default']}}"><u-col vue-id="{{('1bef37c0-2')+','+('1bef37c0-1')}}" span="{{3}}" bind:__l="__l" vue-slots="{{['default']}}"><block wx:for="{{catList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view>{{''+item.name+''}}</view></block></u-col><u-col vue-id="{{('1bef37c0-3')+','+('1bef37c0-1')}}" span="{{9}}" bind:__l="__l"></u-col></u-row></view><u-tabbar vue-id="1bef37c0-4" list="{{tabbar}}" icon-size="{{115}}" bind:__l="__l"></u-tabbar></view>

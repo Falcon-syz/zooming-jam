@@ -1,6 +1,7 @@
 <template>
 	<view>
 		open
+		<u-tabbar :list="tabbar"  :icon-size="115"></u-tabbar>
 	</view>
 </template>
 
@@ -13,7 +14,12 @@
 		},
 		methods: {
 			
-		}
+		},
+		computed:{
+			tabbar(){
+				return this.$store.state.vuex_tabbar
+			}
+		},
 	}
 </script>
 

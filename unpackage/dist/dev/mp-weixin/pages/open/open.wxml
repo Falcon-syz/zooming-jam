@@ -1,1 +1,1 @@
-<view>open</view>
+<view>open<u-tabbar vue-id="159ff680-1" list="{{tabbar}}" icon-size="{{115}}" bind:__l="__l"></u-tabbar></view>

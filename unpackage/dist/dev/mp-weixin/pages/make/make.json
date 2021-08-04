@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "make",
-  "usingComponents": {}
+  "usingComponents": {
+    "u-tabbar": "/uview-ui/components/u-tabbar/u-tabbar"
+  }
 }
