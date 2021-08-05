@@ -1,0 +1,7 @@
+.hbuilderx
+.DS_Store
+unpackage/cache
+unpackage/dist
+unpackage/debug
+unpackage/res
+unpackage/release
