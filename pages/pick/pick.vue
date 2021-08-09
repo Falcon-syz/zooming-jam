@@ -1,25 +1,28 @@
 <template>
-	<view>
+	<view class="container-box" :style="{ backgroundImage:currentBg}">
 		<view class="">
 			<view class="">
 				<u-input v-model="content" type="text" :border="true" />
-				<u-row>
-					<u-col :span="3">
-						<view class="" v-for="(item, index) in catList" :key="index">{{ item.name }}</view>
-					</u-col>
-					<u-col :span="9"></u-col>
-				</u-row>
-				<view class="">{{ error }}</view>
+				<image
+					:src="'../../static/pick/' + (item.isCurrent ? item.icon : item.defaultIcon)"
+					mode="widthFix"
+					style="width: 400rpx;height:400rpx;position:absolute"
+					:class="item.color"
+					v-for="(item, index) in catList"
+					:key="index"
+					@click="onFruitClick(item)"
+				></image>
 			</view>
+			<!-- v-show="keyHeight" -->
 			<view class="input_box" :style="'bottom:' + keyHeight + 'px;'" v-show="keyHeight">
 				<view class="input-icon"><image src="../../static/pick/red.png" mode="widthFix" style="width:55rpx"></image></view>
 				<view class="input-desc">REASONS WHY I LOVE U.</view>
 				<view class="input-textarea">
 					<u-row>
 						<u-col :span="9">
-							<textarea class="r-top" :adjust-position="false" placeholder-style="color:rgba(153,153,153,1);" v-model="content" :placeholder="pl" />
+							<textarea   class="r-top" :adjust-position="false" placeholder-style="color:rgba(153,153,153,1);" v-model="content" :placeholder="pl" />
 						</u-col>
-						<u-col :span="2" :offset="1"><image src="@/static/pick/save.png" mode="widthFix" style="width: 100%;"></image></u-col>
+						<u-col :span="2" :offset="1"><image src="@/static/pick/save.png" mode="widthFix" style="width: 100%;transform:translate(-10rpx,40rpx);"></image></u-col>
 					</u-row>
 				</view>
 				<view class="bottom_actions">
@@ -42,10 +45,18 @@ export default {
 			content: '',
 			keyHeight: 0,
 			error: '',
-			pl: '我说今晚月光那么美，你说是的'
+			pl: '我说今晚月光那么美，你说是的',
 		};
 	},
 	methods: {
+		onFruitClick(item) {
+			this.catList.forEach(el => {
+				if (el.color != item.color) {
+					el.isCurrent = false;
+				}
+			});
+			item.isCurrent = true;
+		},
 		loadFontLocal() {
 			uni.loadFontFace({
 				family: 'pick-font', // 这里是字体的名字
@@ -73,7 +84,7 @@ export default {
 			}
 		}
 	},
-
+	watch: {},
 	onLoad() {
 		this.getCat();
 		uni.onKeyboardHeightChange(res => {
@@ -87,12 +98,84 @@ export default {
 		},
 		tabbar() {
 			return this.$store.state.vuex_tabbar;
+		},
+		bg(){
+			return require('../../static/pick/bg.png')
+		},
+		redtree(){
+			return require('../../static/pick/redtree.png')
+		},
+		greentree(){
+			return require('../../static/pick/greentree.png')
+		},
+		bluetree(){
+			return require('../../static/pick/bluetree.png')
+		},
+		yellowtree(){
+			return require('../../static/pick/yellowtree.png')
+		},
+		purpletree(){
+			return require('../../static/pick/purpletree.png')
+		},
+		currentBg() {
+			if (this.catList && this.catList.length) {
+				const currentLength = this.catList.map(item => item.isCurrent==true);
+				if (currentLength.filter(el=>el==true).length == 5) {
+					return `url(${this.bg})`;
+				} else {
+					switch (this.catList.find(el => el.isCurrent).color) {
+						case 'red':
+							return `url(${this.redtree})`;
+						case 'green':
+							return `url(${this.greentree})`;
+						case 'blue':
+							return `url(${this.bluetree})`;
+						case 'yellow':
+							return `url(${this.yellowtree})`;
+						case 'purple':
+							return `url(${this.purpletree})`;
+						default:
+							return `url(${this.bg})`;
+					}
+				}
+			} else {
+				return `url(${this.bg})`;
+			}
 		}
 	}
 };
 </script>
 
 <style scoped lang="less">
+.red {
+	left: 7%;
+	top: -1%;
+}
+.green {
+	left: 0%;
+	top: 23%;
+	transform: scaleX(-1) rotate(-25deg);
+}
+.blue {
+	left: 45%;
+	top: 31%;
+}
+.yellow {
+	left: 46%;
+	top: 9%;
+	transform: rotate(90deg);
+}
+.purple {
+	left: 8%;
+	top: 49%;
+}
+.container-box {
+	position: relative;
+	min-height: 100vh;
+	background-image: url(../../static/pick/bg.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
 .input_box {
 	z-index: 999;
 	background-color: #fff;

@@ -4,26 +4,14 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"autoAudits": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
+		"urlCheck": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "",
 	"appid": "wx9565cce6b7b44cc8",
 	"projectname": "zooming-jam",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
