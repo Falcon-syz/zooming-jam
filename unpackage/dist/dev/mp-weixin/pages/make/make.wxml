@@ -1,1 +1,0 @@
-<view>make<u-tabbar vue-id="39a5e000-1" list="{{tabbar}}" icon-size="{{115}}" bind:__l="__l"></u-tabbar></view>
